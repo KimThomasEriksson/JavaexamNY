@@ -1,0 +1,9 @@
+.root{
+    -fx-background-color: gray;
+}
+
+#gradeHeader{
+    -fx-text-fill: white;
+    -fx-font-size: 20;
+    -fx-font-family: Arial;
+}

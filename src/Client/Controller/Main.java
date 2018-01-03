@@ -1,0 +1,22 @@
+package Client.Controller;
+
+import Client.Model.ClientGetSchool;
+import Client.Model.School;
+import Client.View.ClientGUI;
+
+import java.io.Serializable;
+import java.util.ArrayList;
+
+public class Main implements Serializable {
+
+
+    public static void main(String[] args) throws InterruptedException {
+        Client.Model.School diceSchool= ClientGetSchool.connect();
+       Thread.sleep(4000);
+       ClientGUI client = new ClientGUI();
+       client.main(args, diceSchool);
+
+
+
+    }
+}

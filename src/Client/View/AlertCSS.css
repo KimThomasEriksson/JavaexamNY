@@ -1,0 +1,9 @@
+.root{
+    -fx-background-color: gray;
+}
+
+#message{
+    -fx-text-fill: white;
+    -fx-font-size: 14;
+    -fx-font-family: Arial;
+}

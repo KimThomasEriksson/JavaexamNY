@@ -1,0 +1,56 @@
+.root{
+    -fx-background-color: gray;
+}
+
+#topLabel{
+    -fx-text-fill: white;
+    -fx-font-size: 26;
+    -fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+#topBox{
+    -fx-background-color: gray;
+}
+
+#leftBox{
+    -fx-background-color: white;
+}
+
+#leftBox .button{
+    -fx-width: 100px;
+    -fx-background-color: midnightblue;
+    -fx-text-fill: white;
+    -fx-font-size: 12;
+    -fx-effect: dropshadow( three-pass-box , rgba(0,0,0,0.6) , 5, 0.0 , 0 , 1 );
+}
+
+#studentCenter, #currentCenter, #completedCenter, #failedCenter, #newCourseCenter{
+    -fx-background-color: white;
+}
+
+#studentHeader{
+    -fx-text-fill: gray;
+    -fx-font-size: 20;
+    -fx-font-weight: bold;
+    -fx-font-family: Arial;
+    -fx-effect: dropshadow( gaussian , rgba(255,255,255,0.5) , 0,0,0,1 );
+}
+
+#nameLabel{
+    -fx-text-fill: gray;
+    -fx-font-size: 14;
+    -fx-font-weight: bold;
+    -fx-font-family: Arial;
+}
+
+#infoLabel{
+    -fx-font-size: 12;
+    -fx-text-fill: black;
+    -fx-font-family: Arial;
+    -fx-border-style: solid;
+    -fx-border-width: 1px;
+    -fx-padding: 4px;
+}
+
