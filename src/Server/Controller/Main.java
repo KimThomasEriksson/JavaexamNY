@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class Main implements Serializable {
 
     public static void main(String[] args) throws InterruptedException, IOException, ClassNotFoundException {
-/*
+
        School diceSchool = new School("Dice School", "Kungsgatan 15");
 
         diceSchool.addCource("Math A", "Mathematics", 100, 25);
@@ -43,7 +43,7 @@ public class Main implements Serializable {
         diceSchool.getCurriculum().get(0).addStudent(diceSchool.getStudents().get(1));
         diceSchool.getCurriculum().get(1).addStudent(diceSchool.getStudents().get(2));
         functoSaveSchool(diceSchool);
-*/
+
 
 
       School school=functoLoadSchool("Dice School");
