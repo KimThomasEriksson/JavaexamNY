@@ -11,8 +11,7 @@ public class Main implements Serializable {
 
 
     public static void main(String[] args) throws InterruptedException {
-        Client.Model.School diceSchool= ClientGetSchool.connect();
-       Thread.sleep(4000);
+        Client.Model.School diceSchool= ClientGetSchool.loadSchool();
        ClientGUI client = new ClientGUI();
        client.main(args, diceSchool);
 

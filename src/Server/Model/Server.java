@@ -10,6 +10,9 @@ import java.net.Socket;
 import java.net.SocketTimeoutException;
 import java.util.ArrayList;
 
+import static Server.Controller.Main.functoLoadSchool;
+import static Server.Controller.Main.functoSaveSchool;
+
 public class Server implements Runnable {
     Socket clientSocket;
     String email;
@@ -69,15 +72,26 @@ public class Server implements Runnable {
         boolean value=true;
         try{
 
-            //DataInputStream in =new DataInputStream(clientSocket.getInputStream());
-            //DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
+            DataInputStream in =new DataInputStream(clientSocket.getInputStream());
+            DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
             ObjectOutputStream oos= new ObjectOutputStream(clientSocket.getOutputStream());
             ObjectInputStream ois= new ObjectInputStream(clientSocket.getInputStream());
             //DataInputStreamReader in = new InputStreamReader(clientSocket.getInputStream());
             boolean mustBeDead = false;
+            String msg=in.readUTF();
+            System.out.println(msg);
+            if(msg.equals("start")){
+                System.out.println("sending school");
+                oos.writeObject(school);
 
-            oos.writeObject(school);
+            }
+            if(msg.equals("exit")){
+                School newschool= (School) ois.readObject();
+                functoSaveSchool(newschool);
+                functoLoadSchool(newschool.getName());
+            }
 
+            System.out.println("We jumped passsed it");
 
 
                 /*
@@ -151,8 +165,10 @@ public class Server implements Runnable {
         System.out.println("Socket timed out!");
     } catch (IOException e) {
         e.printStackTrace();
+    } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
-}
 
     public Object getObjectTeacher(){
         return this.teacher;

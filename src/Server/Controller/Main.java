@@ -47,7 +47,6 @@ public class Main implements Serializable {
 
 
       School school=functoLoadSchool("Dice School");
-      Thread.sleep(2000);
       System.out.println(school.getName());
       Server.main(args);
 
@@ -79,7 +78,6 @@ public class Main implements Serializable {
         ObjectInputStream in = new ObjectInputStream(fileIn);
         newSchool = (School) in.readObject();
         Server.setSchool(newSchool);
-        System.out.println(newSchool.getName());
 
 
         try {

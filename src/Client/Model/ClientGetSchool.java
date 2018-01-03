@@ -9,6 +9,7 @@ public class ClientGetSchool implements Serializable {
     Boolean student;
     ObjectOutputStream out;
     ObjectInputStream in;
+    static School school;
 
     public ClientGetSchool(ObjectOutputStream out, ObjectInputStream in) {
         this.out = out;
@@ -19,17 +20,22 @@ public class ClientGetSchool implements Serializable {
     }
 
     //Testing loggin in to server and if suceed it will check what accses you have and make return the objekt for you
-    public static School connect() {
+    public static School loadSchool() {
         Client.Model.School newschool=null;
         boolean answer = false;
         String accses;
         try {
             Socket clientSocket = new Socket("127.0.0.1", 5555);
 
+            DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
+            ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
 
-            ObjectOutputStream out = new ObjectOutputStream(clientSocket.getOutputStream());
-            ObjectInputStream in = new ObjectInputStream(clientSocket.getInputStream());
-            newschool = (Client.Model.School) in.readObject();
+            out.writeUTF("start");
+            newschool = (Client.Model.School) ois.readObject();
+            school=newschool;
+
+
 
             System.out.println(newschool.getName());
 
@@ -43,6 +49,34 @@ public class ClientGetSchool implements Serializable {
         }
         return newschool;
     }
+
+    public static School exitSchool() {
+        Client.Model.School newschool=null;
+        boolean answer = false;
+        String accses;
+        try {
+            Socket clientSocket = new Socket("127.0.0.1", 5555);
+
+            DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
+            ObjectOutputStream oos = new ObjectOutputStream(clientSocket.getOutputStream());
+            ObjectInputStream ois = new ObjectInputStream(clientSocket.getInputStream());
+
+            out.writeUTF("exit");
+
+            oos.writeObject(school);
+
+
+
+
+
+        }
+
+        catch (IOException e) {e.printStackTrace();
+        }
+        return newschool;
+    }
+
+
 
 
 }
