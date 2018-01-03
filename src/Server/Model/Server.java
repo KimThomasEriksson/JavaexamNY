@@ -1,5 +1,8 @@
 package Server.Model;
-import Server.Controller.Main;
+import Client.Model.Admin;
+import Client.Model.School;
+import Client.Model.Student;
+import Client.Model.Teacher;
 
 import java.io.*;
 import java.net.ServerSocket;

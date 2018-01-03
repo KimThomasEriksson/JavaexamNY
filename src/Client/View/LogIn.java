@@ -108,7 +108,7 @@ public class LogIn{
                     if (school.getAdmins().get(i).getEmail().equals(email.getText())) {
                         foundEmailAdmin = true;
                         if (school.getAdmins().get(i).getPassword().equals(password.getText())) {
-                            //mainWindow.setScene(TeacherScene.createTeacherScene());
+                            mainWindow.setScene(AdminScene.createAdminScene(school.getAdmins().get(i), school));
                             return true;
                         } else {
                             return false;

@@ -1,6 +1,6 @@
 package Server.Controller;
 
-import Server.Model.School;
+import Client.Model.School;
 import Server.Model.Server;
 
 

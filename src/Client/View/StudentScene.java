@@ -16,7 +16,6 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class StudentScene {
 
@@ -31,6 +30,7 @@ public class StudentScene {
         topBox.setPadding(new Insets(10, 10, 10, 10));
         topBox.setSpacing(10);
         topBox.setId("topBox");
+
         Label topLabel = new Label("Student Login");
         topLabel.setId("topLabel");
 

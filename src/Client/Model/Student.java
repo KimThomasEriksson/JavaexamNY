@@ -9,6 +9,8 @@ public class Student extends User implements Serializable {
     private ArrayList<Course> currentCourses;
     private ArrayList<Course> completedCourses;
     private ArrayList<Course> failedCourses;
+    private static int idCounter = 0;
+    private final int studentid;
 
 
     public Student(String firstName, String lastName, String email, String password, int birthyear, ArrayList<Course>currentCourses,ArrayList<Course>completedCourses,ArrayList<Course>failedCourses) {
@@ -16,6 +18,8 @@ public class Student extends User implements Serializable {
         this.currentCourses = currentCourses;
         this.completedCourses = completedCourses;
         this.failedCourses = failedCourses;
+        this.studentid=idCounter;
+        idCounter++;
         calculateTotalPoints();
 
     }
@@ -26,6 +30,8 @@ public class Student extends User implements Serializable {
         this.currentCourses = new ArrayList<>();
         this.completedCourses = new ArrayList<>();
         this.failedCourses = new ArrayList<>();
+        this.studentid=idCounter;
+        idCounter++;
 
     }
 
@@ -75,6 +81,10 @@ public class Student extends User implements Serializable {
             return false;
         }
 
+    }
+
+    public int getStudentId() {
+        return studentid;
     }
 
     public ArrayList<Course> getCurrentCourses() {
