@@ -3,7 +3,7 @@ package Client.Model;
 import java.io.*;
 import java.util.ArrayList;
 
-public class School implements AdminToSchool{
+public class School implements AdminToSchool,Serializable{
     private String Name;
     private String Adress;
     private ArrayList<Curriculum> curriculum;

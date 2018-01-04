@@ -19,7 +19,7 @@ public class ClientGetSchool implements Serializable {
         this.student=false;
     }
 
-    //Testing loggin in to server and if suceed it will check what accses you have and make return the objekt for you
+    //Testing login in to server and if succeed it will check what accsess you have and make return the object for you
     public static School loadSchool() {
         Client.Model.School newschool=null;
         boolean answer = false;
