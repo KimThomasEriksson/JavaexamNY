@@ -3,24 +3,32 @@ package Client.Model;
 import java.io.*;
 import java.util.ArrayList;
 
-public class School implements AdminToSchool,Serializable{
-   private String Name;
-   private String Adress;
-   private ArrayList<Curriculum> curriculum;
-   private ArrayList<Course> courses;
-   private ArrayList<Teacher> teachers;
-   private ArrayList<Student>students;
-   private ArrayList<Admin>admins;
+public class School implements AdminToSchool{
+    private String Name;
+    private String Adress;
+    private ArrayList<Curriculum> curriculum;
+    private ArrayList<Course> courses;
+    private ArrayList<Teacher> teachers;
+    private ArrayList<Student>students;
+    private ArrayList<Admin>admins;
+    private ArrayList<Student> deletedStudents;
+    private ArrayList<Teacher> deletedTeachers;
+    private ArrayList<Course> deletedCourse;
+    private ArrayList<Curriculum> deletedCurricilum;
 
-   public School(String name, String adress) {
-      Name = name;
-      Adress = adress;
-      this.curriculum = new ArrayList<Curriculum>();
-      this.courses =new ArrayList<Course>();
-      this.teachers =new ArrayList<Teacher>();
-      this.students = new ArrayList<Student>();
-      this.admins = new ArrayList<>();
-   }
+    public School(String name, String adress) {
+        Name = name;
+        Adress = adress;
+        this.curriculum = new ArrayList<Curriculum>();
+        this.courses =new ArrayList<Course>();
+        this.teachers =new ArrayList<Teacher>();
+        this.students = new ArrayList<Student>();
+        this.admins = new ArrayList<>();
+        this.deletedCourse = new ArrayList<>();
+        this.deletedTeachers = new ArrayList<>();
+        this.deletedStudents = new ArrayList<>();
+        this.deletedCurricilum = new ArrayList<>();
+    }
 
     public void addTeacher(String firstName,String lastName,String email,String password,int birthyear,int salary,String knownSubject){
         for (int i = 0; i < this.teachers.size(); i++) {
@@ -59,7 +67,7 @@ public class School implements AdminToSchool,Serializable{
     }
 
 
-   public void addStudent(String firstName,String lastName,String email,String password,int birthyear){
+    public void addStudent(String firstName,String lastName,String email,String password,int birthyear){
         for (int i = 0; i < this.students.size(); i++) {
             if (this.students.get(i).getEmail().equals(email)) {
                 return;
@@ -98,14 +106,14 @@ public class School implements AdminToSchool,Serializable{
 
 
     public void addCurriclum(Course course){
-       for (int i = 0; i <this.curriculum.size(); i++) {
-           if(this.curriculum.get(i).getCourse().getName().equals(course.getName())){
-               return;
-           }
-       }
-       Curriculum newCurriculum= new Curriculum(course);
-       this.curriculum.add(newCurriculum);
-   }
+        for (int i = 0; i <this.curriculum.size(); i++) {
+            if(this.curriculum.get(i).getCourse().getName().equals(course.getName())){
+                return;
+            }
+        }
+        Curriculum newCurriculum= new Curriculum(course);
+        this.curriculum.add(newCurriculum);
+    }
 
     public void addCurriclum(Course course,Teacher teacher) {
         for (int i = 0; i < this.curriculum.size(); i++) {
@@ -154,6 +162,26 @@ public class School implements AdminToSchool,Serializable{
 
     public ArrayList<Admin> getAdmins() {
         return admins;
+    }
+
+    public void deleteStudent(Student student){
+        students.remove(student);
+        deletedStudents.add(student);
+    }
+
+    public void deleteTeacher(Teacher teacher){
+        teachers.remove(teacher);
+        deletedTeachers.add(teacher);
+    }
+
+    public void deleteCourse(Course course){
+        courses.remove(course);
+        deletedCourse.add(course);
+    }
+
+    public void deleteCurricilum(Curriculum curriculumToRemove){
+        curriculum.add(curriculumToRemove);
+        deletedCurricilum.add(curriculumToRemove);
     }
 
     /*

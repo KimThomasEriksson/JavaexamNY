@@ -1,6 +1,7 @@
 package Client.Controller;
 
 import Client.Model.ClientGetSchool;
+import Client.View.ClientGUI;
 
 import java.io.Serializable;
 import java.util.ArrayList;
