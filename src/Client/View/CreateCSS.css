@@ -1,0 +1,14 @@
+.root{
+ -fx-background-color: white;
+}
+#topLabel{
+ -fx-font-family: Arial;
+    -fx-text-fill: Gray;
+    -fx-font-size: 16;
+}
+
+#topLabel{
+    -fx-font-family: Arial;
+    -fx-text-fill: Gray;
+    -fx-font-size: 12;
+}

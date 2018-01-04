@@ -1,6 +1,5 @@
 package Client.View;
 
-import Client.Controller.Main;
 import Client.Model.School;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;

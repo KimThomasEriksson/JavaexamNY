@@ -1,6 +1,5 @@
 package Client.View;
 
-import Client.Model.Course;
 import Client.Model.Curriculum;
 import Client.Model.Student;
 import Client.Model.Teacher;
